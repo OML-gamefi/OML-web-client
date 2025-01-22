@@ -7,15 +7,18 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
 
-  // Uncoment to add domain whitelist
-  // images: {
-  //   remotePatterns: [
-  //     {
-  //       protocol: 'https',
-  //       hostname: 'res.cloudinary.com',
-  //     },
-  //   ]
-  // },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
+    ],
+  },
 
   webpack(config) {
     // Grab the existing rule that handles SVG imports
@@ -48,6 +51,9 @@ const nextConfig = {
 
     return config;
   },
+
+  // 添加输出配置
+  output: 'standalone',
 };
 
 module.exports = nextConfig;
